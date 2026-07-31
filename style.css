@@ -172,3 +172,25 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* GALERI GESER */
+.gallery {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0 20px;
+}
+
+.gallery-item {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
