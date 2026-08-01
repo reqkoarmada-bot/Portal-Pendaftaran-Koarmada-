@@ -90,12 +90,26 @@ document.getElementById("tombolStaff").onclick = function () {
 <div class="box">
     <h2>SRT</h2>
 
-    <p>Status: <strong>DIBUKA</strong></p>
+    <p>Status: <strong id="statusSRT">DIBUKA</strong></p>
 
-    <button>
+    <button type="button" id="tombolSRT">
         TUTUP PENDAFTARAN
     </button>
 </div>
+
+<script>
+document.getElementById("tombolSRT").onclick = function () {
+    const status = document.getElementById("statusSRT");
+
+    if (status.textContent === "DIBUKA") {
+        status.textContent = "DITUTUP";
+        this.textContent = "BUKA PENDAFTARAN";
+    } else {
+        status.textContent = "DIBUKA";
+        this.textContent = "TUTUP PENDAFTARAN";
+    }
+};
+</script>
 
 <div class="box">
     <h2>Provost</h2>
