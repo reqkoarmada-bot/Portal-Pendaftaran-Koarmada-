@@ -64,15 +64,28 @@
 <div class="container">
 
     <div class="box">
-        <h2>Status Pendaftaran</h2>
+    <h2>Status Pendaftaran</h2>
 
-        <p>Status saat ini: <strong>DIBUKA</strong></p>
+    <p>Status saat ini: <strong id="status">DIBUKA</strong></p>
 
-        <button>
-            TUTUP PENDAFTARAN
-        </button>
-    </div>
+    <button onclick="ubahStatus()" id="tombolStatus">
+        TUTUP PENDAFTARAN
+    </button>
+</div>
 
+<script>
+    let dibuka = true;
+
+    function ubahStatus() {
+        dibuka = !dibuka;
+
+        document.getElementById("status").textContent =
+            dibuka ? "DIBUKA" : "DITUTUP";
+
+        document.getElementById("tombolStatus").textContent =
+            dibuka ? "TUTUP PENDAFTARAN" : "BUKA PENDAFTARAN";
+    }
+</script>
 
     <div class="box">
         <h2>Tambah Peserta Lulus</h2>
