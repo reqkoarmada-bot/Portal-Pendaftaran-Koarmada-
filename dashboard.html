@@ -72,21 +72,7 @@
         TUTUP PENDAFTARAN
     </button>
 </div>
-
-<script>
-document.getElementById("tombolStaff").onclick = function () {
-    const status = document.getElementById("statusStaff");
-
-    if (status.textContent === "DIBUKA") {
-        status.textContent = "DITUTUP";
-        this.textContent = "BUKA PENDAFTARAN";
-    } else {
-        status.textContent = "DIBUKA";
-        this.textContent = "TUTUP PENDAFTARAN";
-    }
-};
-</script>
-    
+        
 <div class="box">
     <h2>SRT</h2>
 
@@ -96,22 +82,7 @@ document.getElementById("tombolStaff").onclick = function () {
         TUTUP PENDAFTARAN
     </button>
 </div>
-
-<script>
-document.getElementById("tombolSRT").onclick = function () {
-    const status = document.getElementById("statusSRT");
-
-    if (status.textContent === "DIBUKA") {
-        status.textContent = "DITUTUP";
-        this.textContent = "BUKA PENDAFTARAN";
-    } else {
-        status.textContent = "DIBUKA";
-        this.textContent = "TUTUP PENDAFTARAN";
-    }
-};
-</script>
     
-
 
 <div class="box">
     <h2>Provost</h2>
@@ -123,20 +94,6 @@ document.getElementById("tombolSRT").onclick = function () {
     </button>
 </div>
 
-<script>
-document.getElementById("tombolProvost").onclick = function () {
-    const status = document.getElementById("statusProvost");
-
-    if (status.textContent === "DIBUKA") {
-        status.textContent = "DITUTUP";
-        this.textContent = "BUKA PENDAFTARAN";
-    } else {
-        status.textContent = "DIBUKA";
-        this.textContent = "TUTUP PENDAFTARAN";
-    }
-};
-</script>
-
 <div class="box">
     <h2>Sekad</h2>
 
@@ -147,19 +104,6 @@ document.getElementById("tombolProvost").onclick = function () {
     </button>
 </div>
 
-<script>
-document.getElementById("tombolSekad").onclick = function () {
-    const status = document.getElementById("statusSekad");
-
-    if (status.textContent === "DIBUKA") {
-        status.textContent = "DITUTUP";
-        this.textContent = "BUKA PENDAFTARAN";
-    } else {
-        status.textContent = "DIBUKA";
-        this.textContent = "TUTUP PENDAFTARAN";
-    }
-};
-</script>
     
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
