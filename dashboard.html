@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Dashboard Admin - Koarmada</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0b1f33;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #0b1f33;
+            color: white;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Dashboard Admin</h1>
+    <p>Portal Pendaftaran Koarmada</p>
+</header>
+
+<div class="container">
+
+    <div class="box">
+        <h2>Status Pendaftaran</h2>
+
+        <p>Status saat ini: <strong>DIBUKA</strong></p>
+
+        <button>
+            TUTUP PENDAFTARAN
+        </button>
+    </div>
+
+
+    <div class="box">
+        <h2>Tambah Peserta Lulus</h2>
+
+        <input type="text" placeholder="Nomor Peserta">
+
+        <input type="text" placeholder="Nama Peserta">
+
+        <input type="text" placeholder="Unit">
+
+        <button>
+            TAMBAH PESERTA
+        </button>
+    </div>
+
+
+    <div class="box">
+        <h2>Daftar Peserta Lulus</h2>
+
+        <p>Belum ada data peserta.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
