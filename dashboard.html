@@ -116,6 +116,20 @@
             dibuka ? "TUTUP PENDAFTARAN" : "BUKA PENDAFTARAN";
     }
 </script>
+    
+    <script>
+    let staffDibuka = true;
+
+    function ubahStatusStaff() {
+        staffDibuka = !staffDibuka;
+
+        document.getElementById("statusStaff").textContent =
+            staffDibuka ? "DIBUKA" : "DITUTUP";
+
+        document.getElementById("tombolStaff").textContent =
+            staffDibuka ? "TUTUP PENDAFTARAN" : "BUKA PENDAFTARAN";
+    }
+    </script>
 
     <div class="box">
     <h2>Tambah Peserta Lulus</h2>
