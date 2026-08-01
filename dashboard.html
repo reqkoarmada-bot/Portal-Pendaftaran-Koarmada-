@@ -133,3 +133,128 @@
     </table>
     </div>
     
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCIh890N6ZB_dxLipV8dODWS7YVitYWVew",
+    authDomain: "portal-koarmada.firebaseapp.com",
+    projectId: "portal-koarmada",
+    storageBucket: "portal-koarmada.firebasestorage.app",
+    messagingSenderId: "370381398452",
+    appId: "1:370381398452:web:4fc785f94de5e9e101d2e1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
+// =========================
+// TOMBOL UNIT STAFF
+// =========================
+
+document.getElementById("tombolStaff").onclick = function () {
+    const status = document.getElementById("statusStaff");
+
+    if (status.textContent === "DIBUKA") {
+        status.textContent = "DITUTUP";
+        this.textContent = "BUKA PENDAFTARAN";
+    } else {
+        status.textContent = "DIBUKA";
+        this.textContent = "TUTUP PENDAFTARAN";
+    }
+};
+
+
+// =========================
+// TOMBOL SRT
+// =========================
+
+document.getElementById("tombolSRT").onclick = function () {
+    const status = document.getElementById("statusSRT");
+
+    if (status.textContent === "DIBUKA") {
+        status.textContent = "DITUTUP";
+        this.textContent = "BUKA PENDAFTARAN";
+    } else {
+        status.textContent = "DIBUKA";
+        this.textContent = "TUTUP PENDAFTARAN";
+    }
+};
+
+
+// =========================
+// TOMBOL PROVOST
+// =========================
+
+document.getElementById("tombolProvost").onclick = function () {
+    const status = document.getElementById("statusProvost");
+
+    if (status.textContent === "DIBUKA") {
+        status.textContent = "DITUTUP";
+        this.textContent = "BUKA PENDAFTARAN";
+    } else {
+        status.textContent = "DIBUKA";
+        this.textContent = "TUTUP PENDAFTARAN";
+    }
+};
+
+
+// =========================
+// TOMBOL SEKAD
+// =========================
+
+document.getElementById("tombolSekad").onclick = function () {
+    const status = document.getElementById("statusSekad");
+
+    if (status.textContent === "DIBUKA") {
+        status.textContent = "DITUTUP";
+        this.textContent = "BUKA PENDAFTARAN";
+    } else {
+        status.textContent = "DIBUKA";
+        this.textContent = "TUTUP PENDAFTARAN";
+    }
+};
+
+
+// =========================
+// TAMBAH PESERTA KE FIREBASE
+// =========================
+
+window.tambahPeserta = async function () {
+
+    const nama = document.getElementById("nama").value.trim();
+    const unit = document.getElementById("unit").value.trim();
+
+    if (!nama || !unit) {
+        alert("Nama dan unit wajib diisi!");
+        return;
+    }
+
+    try {
+
+        await addDoc(collection(db, "peserta"), {
+            nama: nama,
+            unit: unit,
+            status: "LULUS"
+        });
+
+        alert("Peserta berhasil ditambahkan!");
+
+        document.getElementById("nama").value = "";
+        document.getElementById("unit").value = "";
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Gagal menyimpan peserta.");
+
+    }
+};
+
+</script>
