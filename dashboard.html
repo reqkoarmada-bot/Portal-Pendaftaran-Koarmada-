@@ -88,27 +88,64 @@
 </script>
 
     <div class="box">
-        <h2>Tambah Peserta Lulus</h2>
+    <h2>Tambah Peserta Lulus</h2>
 
-        <input type="text" placeholder="Nomor Peserta">
+    <input type="text" id="nomor" placeholder="Nomor Peserta">
+    <input type="text" id="nama" placeholder="Nama Peserta">
+    <input type="text" id="unit" placeholder="Unit">
 
-        <input type="text" placeholder="Nama Peserta">
-
-        <input type="text" placeholder="Unit">
-
-        <button>
-            TAMBAH PESERTA
-        </button>
-    </div>
-
-
-    <div class="box">
-        <h2>Daftar Peserta Lulus</h2>
-
-        <p>Belum ada data peserta.</p>
-    </div>
-
+    <button onclick="tambahPeserta()">
+        TAMBAH PESERTA
+    </button>
 </div>
 
-</body>
-</html>
+
+<div class="box">
+    <h2>Daftar Peserta Lulus</h2>
+
+    <table style="width:100%; border-collapse:collapse;">
+        <thead>
+            <tr>
+                <th>No. Peserta</th>
+                <th>Nama</th>
+                <th>Unit</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="daftarPeserta">
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+function tambahPeserta() {
+
+    const nomor = document.getElementById("nomor").value;
+    const nama = document.getElementById("nama").value;
+    const unit = document.getElementById("unit").value;
+
+    if (nomor === "" || nama === "" || unit === "") {
+        alert("Lengkapi semua data peserta!");
+        return;
+    }
+
+    const tabel = document.getElementById("daftarPeserta");
+
+    const baris = document.createElement("tr");
+
+    baris.innerHTML = `
+        <td>${nomor}</td>
+        <td>${nama}</td>
+        <td>${unit}</td>
+        <td><strong>LULUS</strong></td>
+    `;
+
+    tabel.appendChild(baris);
+
+    document.getElementById("nomor").value = "";
+    document.getElementById("nama").value = "";
+    document.getElementById("unit").value = "";
+}
+</script>
