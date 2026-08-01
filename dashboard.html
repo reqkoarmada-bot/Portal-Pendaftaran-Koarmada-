@@ -165,6 +165,8 @@ document.getElementById("tombolSekad").onclick = function () {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 import {
     getFirestore,
+    collection,
+    addDoc,
     doc,
     getDoc,
     updateDoc
@@ -182,85 +184,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const statusRef = doc(db, "pendaftaran", "unit_staff");
 
-async function tampilkanStatusStaff() {
-    const snap = await getDoc(statusRef);
-
-    if (snap.exists()) {
-        const dibuka = snap.data().dibuka;
-
-        document.getElementById("statusStaff").textContent =
-            dibuka ? "DIBUKA" : "DITUTUP";
-
-        document.getElementById("tombolStaff").textContent =
-            dibuka ? "TUTUP PENDAFTARAN" : "BUKA PENDAFTARAN";
-    }
-}
-
-window.ubahStatusStaff = async function () {
-    const snap = await getDoc(statusRef);
-
-    if (!snap.exists()) return;
-
-    const dibukaSekarang = snap.data().dibuka;
-
-    await updateDoc(statusRef, {
-        dibuka: !dibukaSekarang
-    });
-
-    tampilkanStatusStaff();
-};
-
-tampilkanStatusStaff();
-</script>
-
-    <div class="box">
-    <h2>Tambah Peserta Lulus</h2>
-
-    <input type="text" id="nama" placeholder="Nama Peserta">
-    <input type="text" id="unit" placeholder="Unit">
-
-    <button onclick="tambahPeserta()">
-        TAMBAH PESERTA
-    </button>
-</div>
-
-
-<div class="box">
-    <h2>Daftar Peserta Lulus</h2>
-
-    <table style="width:100%; border-collapse:collapse;">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Unit</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-
-        <tbody id="daftarPeserta">
-        </tbody>
-    </table>
-</div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCIh890N6ZB_dxLipV8dODWS7YVitYWVew",
-    authDomain: "portal-koarmada.firebaseapp.com",
-    projectId: "portal-koarmada",
-    storageBucket: "portal-koarmada.firebasestorage.app",
-    messagingSenderId: "370381398452",
-    appId: "1:370381398452:web:4fc785f94de5e9e101d2e1"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// ============================
+// TAMBAH PESERTA
+// ============================
 
 window.tambahPeserta = async function() {
+
     const nama = document.getElementById("nama").value.trim();
     const unit = document.getElementById("unit").value.trim();
 
@@ -282,8 +212,112 @@ window.tambahPeserta = async function() {
         document.getElementById("unit").value = "";
 
     } catch (error) {
-        alert("Gagal menyimpan peserta.");
         console.error(error);
+        alert("Gagal menyimpan peserta.");
     }
 };
+
+
+// ============================
+// FUNGSI STATUS UNIT
+// ============================
+
+async function ubahStatusUnit(unitId, statusId, tombolId) {
+
+    const statusRef = doc(db, "pendaftaran", unitId);
+    const snap = await getDoc(statusRef);
+
+    if (!snap.exists()) {
+        alert("Data " + unitId + " belum dibuat di Firebase.");
+        return;
+    }
+
+    const sekarang = snap.data().dibuka;
+
+    await updateDoc(statusRef, {
+        dibuka: !sekarang
+    });
+
+    tampilkanStatus(unitId, statusId, tombolId);
+}
+
+
+async function tampilkanStatus(unitId, statusId, tombolId) {
+
+    const statusRef = doc(db, "pendaftaran", unitId);
+    const snap = await getDoc(statusRef);
+
+    if (!snap.exists()) return;
+
+    const dibuka = snap.data().dibuka;
+
+    document.getElementById(statusId).textContent =
+        dibuka ? "DIBUKA" : "DITUTUP";
+
+    document.getElementById(tombolId).textContent =
+        dibuka ? "TUTUP PENDAFTARAN" : "BUKA PENDAFTARAN";
+}
+
+
+// ============================
+// UNIT STAFF
+// ============================
+
+document.getElementById("tombolStaff").onclick = function() {
+    ubahStatusUnit(
+        "unit_staff",
+        "statusStaff",
+        "tombolStaff"
+    );
+};
+
+
+// ============================
+// SRT
+// ============================
+
+document.getElementById("tombolSRT").onclick = function() {
+    ubahStatusUnit(
+        "srt",
+        "statusSRT",
+        "tombolSRT"
+    );
+};
+
+
+// ============================
+// PROVOST
+// ============================
+
+document.getElementById("tombolProvost").onclick = function() {
+    ubahStatusUnit(
+        "provost",
+        "statusProvost",
+        "tombolProvost"
+    );
+};
+
+
+// ============================
+// SEKAD
+// ============================
+
+document.getElementById("tombolSekad").onclick = function() {
+    ubahStatusUnit(
+        "sekad",
+        "statusSekad",
+        "tombolSekad"
+    );
+};
+
+
+// ============================
+// TAMPILKAN STATUS SAAT HALAMAN DIBUKA
+// ============================
+
+tampilkanStatus("unit_staff", "statusStaff", "tombolStaff");
+tampilkanStatus("srt", "statusSRT", "tombolSRT");
+tampilkanStatus("provost", "statusProvost", "tombolProvost");
+tampilkanStatus("sekad", "statusSekad", "tombolSekad");
+
 </script>
