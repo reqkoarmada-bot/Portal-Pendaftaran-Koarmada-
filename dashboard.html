@@ -160,20 +160,6 @@ document.getElementById("tombolSekad").onclick = function () {
 };
 </script>
     
-<script>
-    let dibuka = true;
-
-    function ubahStatus() {
-        dibuka = !dibuka;
-
-        document.getElementById("status").textContent =
-            dibuka ? "DIBUKA" : "DITUTUP";
-
-        document.getElementById("tombolStatus").textContent =
-            dibuka ? "TUTUP PENDAFTARAN" : "BUKA PENDAFTARAN";
-    }
-</script>
-    
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 import {
