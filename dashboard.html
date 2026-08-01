@@ -292,5 +292,25 @@ tampilkanStatus("unit_staff", "statusStaff", "tombolStaff");
 tampilkanStatus("srt", "statusSRT", "tombolSRT");
 tampilkanStatus("provost", "statusProvost", "tombolProvost");
 tampilkanStatus("sekad", "statusSekad", "tombolSekad");
+async function tampilkanPeserta() {
+    const daftar = document.getElementById("daftarPeserta");
 
+    const snapshot = await getDocs(collection(db, "peserta"));
+
+    daftar.innerHTML = "";
+
+    snapshot.forEach((dokumen) => {
+        const data = dokumen.data();
+
+        daftar.innerHTML += `
+            <tr>
+                <td>${data.nama}</td>
+                <td>${data.unit}</td>
+                <td>${data.status}</td>
+            </tr>
+        `;
+    });
+}
+
+tampilkanPeserta();
 </script>
