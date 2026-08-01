@@ -90,7 +90,6 @@
     <div class="box">
     <h2>Tambah Peserta Lulus</h2>
 
-    <input type="text" id="nomor" placeholder="Nomor Peserta">
     <input type="text" id="nama" placeholder="Nama Peserta">
     <input type="text" id="unit" placeholder="Unit">
 
@@ -106,7 +105,6 @@
     <table style="width:100%; border-collapse:collapse;">
         <thead>
             <tr>
-                <th>No. Peserta</th>
                 <th>Nama</th>
                 <th>Unit</th>
                 <th>Status</th>
@@ -118,34 +116,46 @@
     </table>
 </div>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
-<script>
-function tambahPeserta() {
+const firebaseConfig = {
+    apiKey: "AIzaSyCIh890N6ZB_dxLipV8dODWS7YVitYWVew",
+    authDomain: "portal-koarmada.firebaseapp.com",
+    projectId: "portal-koarmada",
+    storageBucket: "portal-koarmada.firebasestorage.app",
+    messagingSenderId: "370381398452",
+    appId: "1:370381398452:web:4fc785f94de5e9e101d2e1"
+};
 
-    const nomor = document.getElementById("nomor").value;
-    const nama = document.getElementById("nama").value;
-    const unit = document.getElementById("unit").value;
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-    if (nomor === "" || nama === "" || unit === "") {
-        alert("Lengkapi semua data peserta!");
+window.tambahPeserta = async function() {
+    const nama = document.getElementById("nama").value.trim();
+    const unit = document.getElementById("unit").value.trim();
+
+    if (!nama || !unit) {
+        alert("Nama dan unit wajib diisi!");
         return;
     }
 
-    const tabel = document.getElementById("daftarPeserta");
+    try {
+        await addDoc(collection(db, "peserta"), {
+            nama: nama,
+            unit: unit,
+            status: "LULUS"
+        });
 
-    const baris = document.createElement("tr");
+        alert("Peserta berhasil ditambahkan!");
 
-    baris.innerHTML = `
-        <td>${nomor}</td>
-        <td>${nama}</td>
-        <td>${unit}</td>
-        <td><strong>LULUS</strong></td>
-    `;
+        document.getElementById("nama").value = "";
+        document.getElementById("unit").value = "";
 
-    tabel.appendChild(baris);
-
-    document.getElementById("nomor").value = "";
-    document.getElementById("nama").value = "";
-    document.getElementById("unit").value = "";
-}
+    } catch (error) {
+        alert("Gagal menyimpan peserta.");
+        console.error(error);
+    }
+};
 </script>
