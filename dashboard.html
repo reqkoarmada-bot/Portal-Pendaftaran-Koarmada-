@@ -86,7 +86,30 @@ document.getElementById("tombolStaff").onclick = function () {
     }
 };
 </script>
+<div class="box">
+    <h2>SRT</h2>
 
+    <p>Status: <strong id="statusSRT">DIBUKA</strong></p>
+
+    <button type="button" id="tombolSRT">
+        TUTUP PENDAFTARAN
+    </button>
+</div>
+
+<script>
+document.getElementById("tombolSRT").onclick = function () {
+    const status = document.getElementById("statusSRT");
+
+    if (status.textContent === "DIBUKA") {
+        status.textContent = "DITUTUP";
+        this.textContent = "BUKA PENDAFTARAN";
+    } else {
+        status.textContent = "DIBUKA";
+        this.textContent = "TUTUP PENDAFTARAN";
+    }
+};
+</script>
+    
 <script>
 document.getElementById("tombolSRT").onclick = function () {
     const status = document.getElementById("statusSRT");
