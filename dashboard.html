@@ -139,12 +139,26 @@ document.getElementById("tombolProvost").onclick = function () {
 <div class="box">
     <h2>Sekad</h2>
 
-    <p>Status: <strong>DIBUKA</strong></p>
+    <p>Status: <strong id="statusSekad">DIBUKA</strong></p>
 
-    <button>
+    <button type="button" id="tombolSekad">
         TUTUP PENDAFTARAN
     </button>
 </div>
+
+<script>
+document.getElementById("tombolSekad").onclick = function () {
+    const status = document.getElementById("statusSekad");
+
+    if (status.textContent === "DIBUKA") {
+        status.textContent = "DITUTUP";
+        this.textContent = "BUKA PENDAFTARAN";
+    } else {
+        status.textContent = "DIBUKA";
+        this.textContent = "TUTUP PENDAFTARAN";
+    }
+};
+</script>
     
 <script>
     let dibuka = true;
