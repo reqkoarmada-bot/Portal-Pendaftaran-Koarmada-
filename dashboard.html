@@ -148,7 +148,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/fireba
 import {
     getFirestore,
     collection,
-    addDoc
+    addDoc,
+    doc,
+    getDoc,
+    updateDoc
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -162,8 +165,37 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+async function ubahStatusUnit(unitId, statusId, tombolId) {
+    const statusRef = doc(db, "pendaftaran", unitId);
+    const snap = await getDoc(statusRef);
 
+    if (!snap.exists()) {
+        alert("Data " + unitId + " belum dibuat di Firebase.");
+        return;
+    }
 
+    const sekarang = snap.data().dibuka;
+
+    await updateDoc(statusRef, {
+        dibuka: !sekarang
+    });
+
+    tampilkanStatus(unitId, statusId, tombolId);
+}
+async function tampilkanStatus(unitId, statusId, tombolId) {
+    const statusRef = doc(db, "pendaftaran", unitId);
+    const snap = await getDoc(statusRef);
+
+    if (!snap.exists()) return;
+
+    const dibuka = snap.data().dibuka;
+
+    document.getElementById(statusId).textContent =
+        dibuka ? "DIBUKA" : "DITUTUP";
+
+    document.getElementById(tombolId).textContent =
+        dibuka ? "TUTUP PENDAFTARAN" : "BUKA PENDAFTARAN";
+}
 // =========================
 // TOMBOL UNIT STAFF
 // =========================
