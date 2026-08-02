@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portal Pendaftaran Koarmada</title>
-<link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css">
+
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -14,271 +18,643 @@
             font-family: Arial, sans-serif;
         }
 
-        body {
-            background: #f4f6f8;
-            color: #1f2937;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            background: #f5f7fa;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+
         /* =========================
-   NAVBAR PREMIUM
-========================= */
+           NAVBAR
+        ========================= */
 
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-    height: 72px;
-    padding: 0 7%;
+            height: 72px;
+            padding: 0 7%;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    background: rgba(7, 25, 43, 0.97);
-    backdrop-filter: blur(12px);
+            background: #07192b;
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
 
-.logo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-}
+        .logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
 
-.logo span {
-    color: white;
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
+        .logo span {
+            color: white;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
 
-.logo small {
-    margin-top: 4px;
-    color: #91a9bf;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-}
+        .logo small {
+            margin-top: 4px;
+            color: #91a9bf;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
 
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
 
-.nav-menu a {
-    position: relative;
+        .nav-menu a {
+            position: relative;
 
-    color: #dce6ef;
-    text-decoration: none;
+            color: #dce6ef;
+            text-decoration: none;
 
-    font-size: 13px;
-    font-weight: 600;
+            font-size: 13px;
+            font-weight: 600;
 
-    transition: 0.25s ease;
-}
+            transition: 0.25s ease;
+        }
 
-.nav-menu a::after {
-    content: "";
+        .nav-menu a:hover {
+            color: white;
+        }
 
-    position: absolute;
-    left: 0;
-    bottom: -8px;
+        .nav-menu a::after {
+            content: "";
 
-    width: 0;
-    height: 2px;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
 
-    background: #5da9df;
+            width: 0;
+            height: 2px;
 
-    transition: 0.25s ease;
-}
+            background: #c9a44c;
 
-.nav-menu a:hover {
-    color: white;
-}
+            transition: 0.25s ease;
+        }
 
-.nav-menu a:hover::after {
-    width: 100%;
-}
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
 
 
-/* =========================
-   HERO
-========================= */
+        /* =========================
+           HERO
+        ========================= */
 
-.hero {
-    position: relative;
+        .hero {
+            position: relative;
 
-    min-height: 620px;
+            min-height: 620px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    text-align: center;
+            text-align: center;
 
-    padding: 90px 20px;
+            padding: 90px 20px;
 
-    overflow: hidden;
+            overflow: hidden;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(4, 20, 35, 0.94),
-            rgba(9, 49, 78, 0.72)
-        ),
-        url("1_20260731_224607_0000.png");
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(4,20,35,0.94),
+                    rgba(9,49,78,0.72)
+                ),
+                url("1_20260731_224607_0000.png");
 
-    background-size: cover;
-    background-position: center;
-}
+            background-size: cover;
+            background-position: center;
+        }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
 
-    max-width: 850px;
-}
+        .hero-label {
+            display: inline-block;
 
-.hero-label {
-    display: inline-block;
+            margin-bottom: 20px;
 
-    margin-bottom: 20px;
+            padding: 8px 16px;
 
-    padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
 
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 30px;
+            background: rgba(255,255,255,0.08);
 
-    background: rgba(255,255,255,0.08);
+            color: #c9dceb;
 
-    color: #c9dceb;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
 
-    font-size: 11px;
-    font-weight: 700;
+        .hero h1 {
+            margin-bottom: 20px;
 
-    letter-spacing: 1.5px;
-}
+            color: white;
 
-.hero h1 {
-    margin-bottom: 20px;
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.05;
 
-    color: white;
+            font-weight: 900;
+            letter-spacing: 1px;
 
-    font-size: clamp(38px, 6vw, 65px);
-    line-height: 1.05;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.35);
+        }
 
-    font-weight: 900;
-    letter-spacing: 1px;
+        .hero p {
+            max-width: 650px;
 
-    text-shadow:
-        0 4px 20px rgba(0,0,0,0.35);
-}
+            margin: 0 auto;
 
-.hero p {
-    max-width: 650px;
+            color: #d9e5ef;
 
-    margin: 0 auto 30px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
 
-    color: #d9e5ef;
 
-    font-size: 16px;
-    line-height: 1.8;
-}
+        /* =========================
+           SELAMAT DATANG
+        ========================= */
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
+        .welcome {
+            background: #ffffff;
+        }
 
-.hero-button {
-    display: inline-block;
+        .welcome .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 75px 20px;
+        }
 
-    padding: 13px 22px;
+        .welcome-content {
+            text-align: center;
+        }
 
-    border-radius: 8px;
+        .section-label {
+            display: inline-block;
 
-    text-decoration: none;
+            margin-bottom: 12px;
 
-    font-size: 13px;
-    font-weight: 700;
+            color: #b18b32;
 
-    transition: 0.25s ease;
-}
+            font-size: 11px;
+            font-weight: 800;
 
-.hero-button.primary {
-    background: #1769aa;
-    color: white;
+            letter-spacing: 2px;
+        }
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
+        .welcome h2 {
+            margin-bottom: 20px;
 
-.hero-button.primary:hover {
-    background: #2380c5;
-    transform: translateY(-2px);
-}
+            color: #0b1f33;
 
-.hero-button.secondary {
-    background: rgba(255,255,255,0.08);
+            font-size: 36px;
+            font-weight: 800;
+        }
 
-    border: 1px solid rgba(255,255,255,0.3);
+        .welcome p {
+            max-width: 780px;
 
-    color: white;
-}
+            margin: 0 auto 15px;
 
-.hero-button.secondary:hover {
-    background: rgba(255,255,255,0.16);
+            color: #687386;
 
-    transform: translateY(-2px);
-}
+            font-size: 16px;
+            line-height: 1.8;
+        }
 
-.hero-bottom {
-    position: absolute;
 
-    bottom: 20px;
-    left: 0;
-    right: 0;
+        /* =========================
+           INFORMASI
+        ========================= */
 
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+        .info-section {
+            max-width: 900px;
 
-    color: rgba(255,255,255,0.45);
+            margin: 0 auto;
 
-    font-size: 9px;
-    font-weight: 700;
+            padding: 25px 20px 65px;
+        }
 
-    letter-spacing: 2px;
-}
+        .info-card {
+            background: #ffffff;
 
-        /* SECTION */
+            margin-bottom: 22px;
+
+            border: 1px solid #e1e5e9;
+
+            border-top: 4px solid #c5a044;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 6px 22px rgba(11,31,51,0.08);
+
+            overflow: hidden;
+
+            transition: 0.25s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(11,31,51,0.13);
+        }
+
+        .info-card a {
+            display: block;
+
+            padding: 30px;
+
+            color: inherit;
+
+            text-decoration: none;
+        }
+
+        .info-card h2 {
+            margin-bottom: 10px;
+
+            color: #0b1f33;
+
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .info-card p {
+            color: #68778a;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           PENDAFTARAN
+        ========================= */
+
+        .registration {
+            background: #f5f7fa;
+        }
+
         .container {
             max-width: 1100px;
+
             margin: auto;
-            padding: 60px 20px;
+
+            padding: 70px 20px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 35px;
+
+            margin-bottom: 40px;
         }
 
         .section-title h2 {
-            font-size: 30px;
             margin-bottom: 10px;
+
+            color: #0b1f33;
+
+            font-size: 30px;
+            font-weight: 800;
         }
 
         .section-title p {
-            color: #6b7280;
+            color: #687386;
         }
 
-        /* PENDAFTARAN */
+
+        /* KARTU PENDAFTARAN */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+
+            color: #0b1f33;
+
+            font-size: 21px;
+        }
+
+        .card p {
+            margin-bottom: 20px;
+
+            color: #6b7280;
+
+            line-height: 1.6;
+        }
+
+
+        /* STATUS */
+
+        .status {
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            margin-bottom: 15px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .open {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .closed {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+
+        /* BUTTON */
+
+        .button {
+            display: block;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            background: #1769aa;
+
+            color: white;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0d568d;
+        }
+
+        .disabled {
+            background: #9ca3af;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                min-height: 520px;
+
+                padding: 70px 20px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .welcome .container {
+                padding: 55px 20px;
+            }
+
+            .welcome h2 {
+                font-size: 30px;
+            }
+
+            .info-section {
+                padding: 20px 16px 45px;
+            }
+
+            .info-card a {
+                padding: 25px 22px;
+            }
+
+            .info-card h2 {
+                font-size: 22px;
+            }
+
+            .info-card p {
+                font-size: 14px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+
+            <span>KOARMADA</span>
+
+            <small>
+                KOMANDO ARMADA REPUBLIK INDONESIA
+            </small>
+
+        </div>
+
+        <div class="nav-menu">
+
+            <a href="#beranda">Beranda</a>
+            <a href="#pendaftaran">Pendaftaran</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="beranda">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                PORTAL RESMI KOARMADA
+            </span>
+
+            <h1>
+                PORTAL PENDAFTARAN KOARMADA
+            </h1>
+
+            <p>
+                Portal informasi dan pendaftaran terpadu
+                untuk berbagai satuan dan program
+                di lingkungan Komando Armada Republik Indonesia.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SELAMAT DATANG -->
+
+    <section class="welcome">
+
+        <div class="container">
+
+            <div class="welcome-content">
+
+                <span class="section-label">
+                    PORTAL RESMI KOARMADA
+                </span>
+
+                <h2>
+                    Selamat Datang
+                </h2>
+
+                <p>
+                    Portal Koarmada merupakan platform informasi
+                    dan pendaftaran terpadu untuk berbagai satuan
+                    dan program di lingkungan Komando Armada
+                    Republik Indonesia.
+                </p>
+
+                <p>
+                    Portal ini dirancang untuk memberikan kemudahan
+                    dalam proses pendaftaran, penyampaian informasi
+                    seleksi, serta pemantauan hasil seleksi secara
+                    tertib, transparan, dan profesional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMASI KOARMADA -->
+
+    <section class="info-section">
+
+        <div class="info-card">
+
+            <a href="tentang.html">
+
+                <h2>
+                    Tentang Koarmada
+                </h2>
+
+                <p>
+                    Kenali Koarmada, tugas, fungsi, dan informasi
+                    umum mengenai organisasi.
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <a href="visi-misi.html">
+
+                <h2>
+                    Visi &amp; Misi
+                </h2>
+
+                <p>
+                    Arah dan tujuan Koarmada dalam mengembangkan
+                    profesionalisme dan pengabdian.
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <a href="galeri.html">
+
+                <h2>
+                    Galeri Kegiatan
+                </h2>
+
+                <p>
+                    Dokumentasi foto kegiatan dan aktivitas
+                    di lingkungan Koarmada.
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PENDAFTARAN -->
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -452,91 +828,7 @@ nav {
         margin-bottom: 10px;
         font-weight: 800;
         color: #0b1f33;
-    }
 
-    .section-title p {
-        color: #687386;
-    }
-            
-/* =========================
-   KARTU INFORMASI KOARMADA
-========================= */
-
-.info-section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px 20px 60px;
-}
-
-.info-card {
-    background: #ffffff;
-    margin-bottom: 22px;
-
-    border: 1px solid #e1e5e9;
-    border-top: 4px solid #c5a044;
-    border-radius: 16px;
-
-    box-shadow: 0 5px 18px rgba(11, 31, 51, 0.08);
-
-    overflow: hidden;
-    transition: 0.25s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(11, 31, 51, 0.13);
-}
-
-.info-card a {
-    display: block;
-    padding: 28px 30px;
-
-    text-decoration: none;
-}
-
-.info-card h2 {
-    margin: 0 0 10px;
-
-    color: #0b1f33;
-    font-size: 25px;
-    font-weight: 800;
-}
-
-.info-card p {
-    margin: 0;
-
-    color: #667587;
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .info-section {
-        padding: 15px 16px 45px;
-    }
-
-    .info-card {
-        margin-bottom: 16px;
-        border-radius: 14px;
-    }
-
-    .info-card a {
-        padding: 24px 22px;
-    }
-
-    .info-card h2 {
-        font-size: 22px;
-    }
-
-    .info-card p {
-        font-size: 14px;
-    }
-}
-            
-    /* PENDAFTARAN */
     .cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
