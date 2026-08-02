@@ -457,7 +457,87 @@ nav {
     .section-title p {
         color: #687386;
     }
+            
+/* =========================
+   INFORMASI PORTAL
+========================= */
 
+.info-section {
+    background: #f5f6f8;
+    padding: 45px 20px 70px;
+}
+
+.info-section .container {
+    max-width: 850px;
+    padding: 0;
+    margin: auto;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 22px;
+
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #c5a04a;
+
+    box-shadow: 0 7px 20px rgba(11, 31, 51, 0.08);
+
+    overflow: hidden;
+    transition: 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(11, 31, 51, 0.13);
+}
+
+.info-card a {
+    display: block;
+    padding: 30px 32px;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.info-card h2 {
+    margin: 0 0 12px;
+
+    color: #0b1f33;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.info-card p {
+    margin: 0;
+
+    color: #667085;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* HP */
+
+@media (max-width: 800px) {
+
+    .info-section {
+        padding: 30px 18px 50px;
+    }
+
+    .info-card a {
+        padding: 25px 22px;
+    }
+
+    .info-card h2 {
+        font-size: 21px;
+    }
+
+    .info-card p {
+        font-size: 14px;
+    }
+
+}
+            
     /* PENDAFTARAN */
     .cards {
         display: grid;
@@ -742,56 +822,40 @@ nav {
 
 </section>
 
-<!-- INFORMASI KOARMADA -->
+<!-- INFORMASI -->
 <section class="info-section">
 
-    <div class="container">
+    <div class="info-card">
+        <a href="tentang.html">
+            <h2>Tentang Koarmada</h2>
+            <p>
+                Kenali Koarmada, tugas, fungsi, dan informasi
+                umum mengenai organisasi.
+            </p>
+        </a>
+    </div>
 
-        <div class="info-card">
-            <a href="tentang.html">
+    <div class="info-card">
+        <a href="visi-misi.html">
+            <h2>Visi &amp; Misi</h2>
+            <p>
+                Arah dan tujuan Koarmada dalam mengembangkan
+                profesionalisme dan pengabdian.
+            </p>
+        </a>
+    </div>
 
-                <h2>Tentang Koarmada</h2>
-
-                <p>
-                    Kenali Koarmada, tugas, fungsi, dan
-                    informasi umum mengenai organisasi.
-                </p>
-
-            </a>
-        </div>
-
-
-        <div class="info-card">
-            <a href="visi-misi.html">
-
-                <h2>Visi &amp; Misi</h2>
-
-                <p>
-                    Arah dan tujuan Koarmada dalam
-                    menjalankan tugas dan pengabdian.
-                </p>
-
-            </a>
-        </div>
-
-
-        <div class="info-card">
-            <a href="galeri.html">
-
-                <h2>Galeri Kegiatan</h2>
-
-                <p>
-                    Dokumentasi foto kegiatan dan aktivitas
-                    di lingkungan Koarmada.
-                </p>
-
-            </a>
-        </div>
-
+    <div class="info-card">
+        <a href="galeri.html">
+            <h2>Galeri Kegiatan</h2>
+            <p>
+                Dokumentasi foto kegiatan dan aktivitas
+                di lingkungan Koarmada.
+            </p>
+        </a>
     </div>
 
 </section>
-
     
 <!-- PENDAFTARAN -->
 <section class="container" id="pendaftaran">
