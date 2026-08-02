@@ -236,17 +236,13 @@ document.getElementById("tombolSekad").onclick = function () {
 // =========================
 
 document.getElementById("tombolSekasel").onclick = function () {
-    const status = document.getElementById("statusSekasel");
-
-    if (status.textContent === "DIBUKA") {
-        status.textContent = "DITUTUP";
-        this.textContent = "BUKA PENDAFTARAN";
-    } else {
-        status.textContent = "DIBUKA";
-        this.textContent = "TUTUP PENDAFTARAN";
-    }
+    ubahStatusUnit(
+        "sekasel",
+        "statusSekasel",
+        "tombolSekasel"
+    );
 };
-
+    
 // =========================
 // TAMBAH PESERTA KE FIREBASE
 // =========================
