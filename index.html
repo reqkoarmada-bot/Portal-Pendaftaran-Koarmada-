@@ -19,52 +19,243 @@
             color: #1f2937;
         }
 
-        /* NAVBAR */
-        nav {
-            background: #0b1f33;
-            color: white;
-            padding: 16px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* =========================
+   NAVBAR PREMIUM
+========================= */
 
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
-        }
+    height: 72px;
+    padding: 0 7%;
 
-        /* HERO */
-        .hero {
-            background: linear-gradient(
-                rgba(5, 25, 45, 0.75),
-                rgba(5, 25, 45, 0.75)
-            ),
-            url("1_20260731_224607_0000.png");
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-            background-size: cover;
-            background-position: center;
+    background: rgba(7, 25, 43, 0.97);
+    backdrop-filter: blur(12px);
 
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 
-        .hero h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
 
-        .hero p {
-            font-size: 17px;
-        }
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo span {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo small {
+    margin-top: 4px;
+    color: #91a9bf;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-menu a {
+    position: relative;
+
+    color: #dce6ef;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.nav-menu a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #5da9df;
+
+    transition: 0.25s ease;
+}
+
+.nav-menu a:hover {
+    color: white;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 90px 20px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(4, 20, 35, 0.94),
+            rgba(9, 49, 78, 0.72)
+        ),
+        url("1_20260731_224607_0000.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+.hero-label {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    padding: 8px 16px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: #c9dceb;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+
+    color: white;
+
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.05;
+
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,0.35);
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    color: #d9e5ef;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-button {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.hero-button.primary {
+    background: #1769aa;
+    color: white;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.hero-button.primary:hover {
+    background: #2380c5;
+    transform: translateY(-2px);
+}
+
+.hero-button.secondary {
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    color: white;
+}
+
+.hero-button.secondary:hover {
+    background: rgba(255,255,255,0.16);
+
+    transform: translateY(-2px);
+}
+
+.hero-bottom {
+    position: absolute;
+
+    bottom: 20px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    color: rgba(255,255,255,0.45);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
 
         /* SECTION */
         .container {
@@ -460,34 +651,64 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav>
+<nav>
 
-        <div class="logo">
-            KOARMADA
-        </div>
+    <div class="logo">
+        <span>KOARMADA</span>
+        <small>PORTAL PENDAFTARAN</small>
+    </div>
 
-        <div>
+    <div class="nav-menu">
+        <a href="#beranda">Beranda</a>
+        <a href="#pendaftaran">Pendaftaran</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#tentang">Tentang</a>
+    </div>
 
-        </div>
-
-    </nav>
+</nav>
 
 
-    <!-- HERO -->
-    <section class="hero" id="beranda">
+<!-- HERO -->
+<section class="hero" id="beranda">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            ⚓ PORTAL RESMI KOARMADA
+        </span>
 
         <h1>
-            PORTAL PENDAFTARAN KOARMADA
+            PORTAL<br>
+            PENDAFTARAN KOARMADA
         </h1>
 
         <p>
-            Portal informasi dan pendaftaran Unit Staff, SRT, Provost, dan Sekad.
+            Informasi dan pendaftaran untuk bergabung
+            bersama satuan Koarmada.
         </p>
 
-    </section>
-    
-</section>
+        <div class="hero-buttons">
 
+            <a href="#pendaftaran" class="hero-button primary">
+                DAFTAR SEKARANG
+            </a>
+
+            <a href="#tentang" class="hero-button secondary">
+                TENTANG KOARMADA
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-bottom">
+        <span>PORTAL PENDAFTARAN</span>
+        <span>•</span>
+        <span>KOARMADA</span>
+    </div>
+
+</section>
+    
 <!-- CEK KELULUSAN -->
 <section class="container">
 
